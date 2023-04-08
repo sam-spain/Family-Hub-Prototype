@@ -10,8 +10,8 @@ public class TasksController : Controller
     public string Index(string name)
     {
         var view = "There will be a list of tasks here someday!";
-        if(name != "") {
-            view += "\nThese tasks will be shown for: " + name;
+        if(!String.IsNullOrEmpty(name)) {
+            view += " These tasks will be shown for: " + name;
         }
         return HtmlEncoder.Default.Encode(view);
     }
