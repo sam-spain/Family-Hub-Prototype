@@ -13,7 +13,7 @@ public class TasksController : Controller
         if(name != "") {
             view += "\nThese tasks will be shown for: " + name;
         }
-        return view;
+        return HtmlEncoder.Default.Encode(view);
     }
     // 
     // GET: /HelloWorld/Welcome/ 
