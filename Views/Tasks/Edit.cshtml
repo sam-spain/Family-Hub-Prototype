@@ -1,0 +1,54 @@
+@model family_hub_prototype.Models.Task
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Task</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TaskName" class="control-label"></label>
+                <input asp-for="TaskName" class="form-control" />
+                <span asp-validation-for="TaskName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskDueDate" class="control-label"></label>
+                <input asp-for="TaskDueDate" class="form-control" />
+                <span asp-validation-for="TaskDueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskAssigneeId" class="control-label"></label>
+                <input asp-for="TaskAssigneeId" class="form-control" />
+                <span asp-validation-for="TaskAssigneeId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TaskIsCompleted" /> @Html.DisplayNameFor(model => model.TaskIsCompleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskCompletedDate" class="control-label"></label>
+                <input asp-for="TaskCompletedDate" class="form-control" />
+                <span asp-validation-for="TaskCompletedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
